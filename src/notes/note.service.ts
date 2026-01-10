@@ -49,6 +49,10 @@ export class NoteService {
     return this.noteModel.findAll();
   }
 
+  findAllByUserId(id: string) {
+    return this.noteModel.findAll({ where: { user_id: id } });
+  }
+
   async findOne(id: number) {
     const note = await this.noteModel.findByPk(id);
     if (!note) throw new NotFoundException('note not found');

@@ -6,6 +6,7 @@ export declare class NotebooksController {
     constructor(notebooksService: NotebooksService);
     create(createNotebookDto: CreateNotebookDto): Promise<import("./models/notebook.model").Notebook>;
     findAll(): Promise<import("./models/notebook.model").Notebook[]>;
+    findAllByUserId(id: string): Promise<import("./models/notebook.model").Notebook[]>;
     findOne(id: string): Promise<import("./models/notebook.model").Notebook>;
     update(id: string, updateNotebookDto: UpdateNotebookDto): Promise<import("./models/notebook.model").Notebook>;
     remove(id: string): Promise<{

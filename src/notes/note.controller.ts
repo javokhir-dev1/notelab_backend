@@ -27,6 +27,13 @@ export class NoteController {
 
   @Roles(UserRole.ADMIN, UserRole.USER)
   @UseGuards(UserAuthGuard, RolesGuard, SelfGuard)
+  @Get("user/:id")
+  findAllByUserId(@Param('id') id: string) {
+    return this.noteService.findAllByUserId(id);
+  }
+
+  @Roles(UserRole.ADMIN, UserRole.USER)
+  @UseGuards(UserAuthGuard, RolesGuard, SelfGuard)
   @Get('user/:id/note/:noteId')
   findOne(@Param('noteId') id: string) {
     return this.noteService.findOne(+id);

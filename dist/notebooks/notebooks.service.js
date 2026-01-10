@@ -38,6 +38,9 @@ let NotebooksService = class NotebooksService {
     findAll() {
         return this.notebookModel.findAll();
     }
+    findAllByUserId(id) {
+        return this.notebookModel.findAll({ where: { user_id: id } });
+    }
     async findOne(id) {
         const notebook = await this.notebookModel.findByPk(id);
         if (!notebook)

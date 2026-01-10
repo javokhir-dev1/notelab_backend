@@ -27,6 +27,13 @@ export class NotebooksController {
 
   @Roles(UserRole.ADMIN, UserRole.USER)
   @UseGuards(UserAuthGuard, RolesGuard, SelfGuard)
+  @Get("user/:id")
+  findAllByUserId(@Param('id') id: string) {
+    return this.notebooksService.findAllByUserId(id);
+  }
+
+  @Roles(UserRole.ADMIN, UserRole.USER)
+  @UseGuards(UserAuthGuard, RolesGuard, SelfGuard)
   @Get('user/:id/notebook/:notebookId')
   findOne(@Param('notebookId') id: string) {
     return this.notebooksService.findOne(+id);

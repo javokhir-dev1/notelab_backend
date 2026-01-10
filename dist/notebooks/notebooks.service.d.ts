@@ -8,6 +8,7 @@ export declare class NotebooksService {
     constructor(notebookModel: typeof Notebook, userModel: typeof User);
     create(dto: CreateNotebookDto): Promise<Notebook>;
     findAll(): Promise<Notebook[]>;
+    findAllByUserId(id: string): Promise<Notebook[]>;
     findOne(id: number): Promise<Notebook>;
     update(id: number, dto: UpdateNotebookDto): Promise<Notebook>;
     remove(id: number): Promise<{

@@ -6,6 +6,7 @@ export declare class NoteController {
     constructor(noteService: NoteService);
     create(createNoteDto: CreateNoteDto): Promise<import("./models/notes.model").Note>;
     findAll(): Promise<import("./models/notes.model").Note[]>;
+    findAllByUserId(id: string): Promise<import("./models/notes.model").Note[]>;
     findOne(id: string): Promise<import("./models/notes.model").Note>;
     update(id: string, updateNotebookDto: UpdateNoteDto): Promise<import("./models/notes.model").Note>;
     remove(id: string): Promise<{

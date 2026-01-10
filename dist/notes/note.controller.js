@@ -32,6 +32,9 @@ let NoteController = class NoteController {
     findAll() {
         return this.noteService.findAll();
     }
+    findAllByUserId(id) {
+        return this.noteService.findAllByUserId(id);
+    }
     findOne(id) {
         return this.noteService.findOne(+id);
     }
@@ -60,6 +63,15 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], NoteController.prototype, "findAll", null);
+__decorate([
+    (0, app_contstants_1.Roles)(app_contstants_1.UserRole.ADMIN, app_contstants_1.UserRole.USER),
+    (0, common_1.UseGuards)(user_auth_guard_1.UserAuthGuard, roles_guard_1.RolesGuard, self_guard_1.SelfGuard),
+    (0, common_1.Get)("user/:id"),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], NoteController.prototype, "findAllByUserId", null);
 __decorate([
     (0, app_contstants_1.Roles)(app_contstants_1.UserRole.ADMIN, app_contstants_1.UserRole.USER),
     (0, common_1.UseGuards)(user_auth_guard_1.UserAuthGuard, roles_guard_1.RolesGuard, self_guard_1.SelfGuard),

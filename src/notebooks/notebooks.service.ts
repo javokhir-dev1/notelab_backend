@@ -36,6 +36,10 @@ export class NotebooksService {
     return this.notebookModel.findAll();
   }
 
+  findAllByUserId(id: string) {
+    return this.notebookModel.findAll({ where: { user_id: id } });
+  }
+
   async findOne(id: number) {
     const notebook = await this.notebookModel.findByPk(id);
     if (!notebook) throw new NotFoundException('notebook not found');
