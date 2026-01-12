@@ -27,9 +27,9 @@ export class NoteController {
 
   @Roles(UserRole.ADMIN, UserRole.USER)
   @UseGuards(UserAuthGuard, RolesGuard, SelfGuard)
-  @Get("user/:id")
-  findAllByUserId(@Param('id') id: string) {
-    return this.noteService.findAllByUserId(id);
+  @Get("user/:id/folder/:folderId")
+  findAllByFolderId(@Param('id') id: string, @Param("folderId") folderId: string) {
+    return this.noteService.findAllByFolderId(id, folderId);
   }
 
   @Roles(UserRole.ADMIN, UserRole.USER)

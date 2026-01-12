@@ -32,8 +32,8 @@ let NoteController = class NoteController {
     findAll() {
         return this.noteService.findAll();
     }
-    findAllByUserId(id) {
-        return this.noteService.findAllByUserId(id);
+    findAllByFolderId(id, folderId) {
+        return this.noteService.findAllByFolderId(id, folderId);
     }
     findOne(id) {
         return this.noteService.findOne(+id);
@@ -66,12 +66,13 @@ __decorate([
 __decorate([
     (0, app_contstants_1.Roles)(app_contstants_1.UserRole.ADMIN, app_contstants_1.UserRole.USER),
     (0, common_1.UseGuards)(user_auth_guard_1.UserAuthGuard, roles_guard_1.RolesGuard, self_guard_1.SelfGuard),
-    (0, common_1.Get)("user/:id"),
+    (0, common_1.Get)("user/:id/folder/:folderId"),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Param)("folderId")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
-], NoteController.prototype, "findAllByUserId", null);
+], NoteController.prototype, "findAllByFolderId", null);
 __decorate([
     (0, app_contstants_1.Roles)(app_contstants_1.UserRole.ADMIN, app_contstants_1.UserRole.USER),
     (0, common_1.UseGuards)(user_auth_guard_1.UserAuthGuard, roles_guard_1.RolesGuard, self_guard_1.SelfGuard),

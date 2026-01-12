@@ -49,8 +49,8 @@ export class NoteService {
     return this.noteModel.findAll();
   }
 
-  findAllByUserId(id: string) {
-    return this.noteModel.findAll({ where: { user_id: id } });
+  findAllByFolderId(id: string, folderId: string) {
+    return this.noteModel.findAll({ where: { notebook_id: folderId, user_id: id } });
   }
 
   async findOne(id: number) {

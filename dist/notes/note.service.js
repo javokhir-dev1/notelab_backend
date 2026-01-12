@@ -48,8 +48,8 @@ let NoteService = class NoteService {
     findAll() {
         return this.noteModel.findAll();
     }
-    findAllByUserId(id) {
-        return this.noteModel.findAll({ where: { user_id: id } });
+    findAllByFolderId(id, folderId) {
+        return this.noteModel.findAll({ where: { notebook_id: folderId, user_id: id } });
     }
     async findOne(id) {
         const note = await this.noteModel.findByPk(id);
