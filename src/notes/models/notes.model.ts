@@ -35,7 +35,7 @@ export class Note extends Model<Note, NoteCreationAttr> {
     declare notebook_id: number;
 
     @Column({
-        type: DataType.STRING,
+        type: DataType.TEXT,
         allowNull: false
     })
     declare content: string;
